@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'mysql:mysql-connector-java:8.0.27'
+    testImplementation 'junit:junit:4.13.2'
+}
+
+application {
+    mainClass = 'com.example.EmployeeDatabase'
+}
+
+task runApp(type: JavaExec) {
+    mainClass = 'com.example.EmployeeDatabase'
+    classpath = sourceSets.main.runtimeClasspath
+    standardInput = System.in
+}
